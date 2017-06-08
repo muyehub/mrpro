@@ -9,6 +9,13 @@ if (PHP_SAPI == 'cli-server') {
     }
 }
 
+define("DS", DIRECTORY_SEPARATOR);
+define("ROOT", realpath(dirname(__DIR__)) . DS);
+define("VENDORDIR", ROOT . "vendor" . DS);
+define("ROUTEDIR", ROOT . "src" . DS . "routes" . DS);
+define("TEMPLATEDIR", ROOT . "templates" . DS);
+define("LANGUAGEDIR", ROOT . "languages" . DS);
+
 require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
@@ -23,8 +30,12 @@ require __DIR__ . '/../src/dependencies.php';
 // Register middleware
 require __DIR__ . '/../src/middleware.php';
 
-// Register routes
-require __DIR__ . '/../src/routes.php';
+/**
+ * Include all files located in routes directory
+ */
+foreach(glob(ROUTEDIR . '*.php') as $router) {
+	require_once $router;
+}
 
 // Run app
 $app->run();
