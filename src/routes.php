@@ -4,7 +4,7 @@
 $app->get('/[{name}]', function ($request, $response, $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
-    //$args['stylePath'] = $this->renderer->getTemplatePath().$args['name'];
+    if(!isset($args['name']) && empty($args['name']))	$args['name'] = 'index';
     // Render index view
-    return $this->view->render($response, $args['name'].'/index.phtml', $args);
+    return $this->view->render($response, '/'.$args['name'].'.phtml', $args);
 });
