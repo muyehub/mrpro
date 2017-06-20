@@ -24,6 +24,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
 
     /**
      * Process the application given a request method and URI
+	 * 处理应用程序提交的请求方法和URI
      *
      * @param string $requestMethod the request method (e.g. GET, POST, etc.)
      * @param string $requestUri the request URI
@@ -66,7 +67,10 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         }
 
         // Register routes
-        require __DIR__ . '/../../src/routes.php';
+        //require __DIR__ . '/../../src/routes.php';
+		foreach(glob(ROUTEDIR . '*.php') as $router) {
+			require_once $router;
+		}
 
         // Process the application
         $response = $app->process($request, $response);
