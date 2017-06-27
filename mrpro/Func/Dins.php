@@ -9,6 +9,6 @@ class Dins extends BaseCase
 	 */
 	public function Index()
 	{
-		$this->view->render('dins.phtml');
+
 	}
 }
