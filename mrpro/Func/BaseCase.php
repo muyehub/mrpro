@@ -3,6 +3,7 @@
 namespace Mrpro\Func;
 
 use Slim\App;
+use Slim\Container;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\Environment;
@@ -67,10 +68,7 @@ class BaseCase extends \PHPUnit_Framework_TestCase
 		}
 
 		// Register routes
-		//require __DIR__ . '/../../src/routes.php';
-		foreach(glob(ROUTEDIR . '*.php') as $router) {
-			require_once $router;
-		}
+		require __DIR__ . '/../../src/routes.php';
 
 		// Process the application
 		$response = $app->process($request, $response);

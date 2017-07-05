@@ -2,6 +2,9 @@
 // Routes
 
 $app->get('/tools','Mrpro\Func\Dins:Index');
+$app->get('/test','Mrpro\Func\Dins:Test');
+$app->get('/temp','Mrpro\Func\Dins:Temp');
+$app->get('/home','Mrpro\Func\Dins:home');
 
 //基本路由
 $app->get('/[{name}]', function ($request, $response, $args) {

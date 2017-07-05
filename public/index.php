@@ -33,9 +33,7 @@ require __DIR__ . '/../src/middleware.php';
 /**
  * Include all files located in routes directory
  */
-foreach(glob(ROUTEDIR . '*.php') as $router) {
-	require_once $router;
-}
+require __DIR__ . '/../src/routes.php';
 
 // Run app
 $app->run();
