@@ -23,6 +23,16 @@ class BaseCase extends \PHPUnit_Framework_TestCase
 	 */
 	protected $withMiddleware = true;
 
+	protected $container;
+	protected $view;
+
+	// constructor receives container instance
+	public function __construct(\Slim\Container $container) {
+		parent::__construct();
+		$this->container = $container;
+		$this->view = $this->container->get('view');
+	}
+
 	/**
 	 * Process the application given a request method and URI
 	 * 处理应用程序提交的请求方法和URI

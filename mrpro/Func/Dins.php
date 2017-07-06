@@ -82,7 +82,7 @@ class Dins extends BaseCase
 		$this->assertContains('Home', (string)$response->getBody());
 	}
 
-	public function home($response, $request, $args) {
+	public function Home($request, $response, $args) {
 		$view = $this->container->get('view');
 		$view->render($response,'index.phtml',$args);
 	}

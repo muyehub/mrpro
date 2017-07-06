@@ -17,4 +17,22 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
     ],
+
+	'menu'	=>	[
+		'youtube'		=>	'YouTube',
+		'index'			=>	'仪表盘',
+		'ui'			=>	'UI界面',
+		'form'			=>	'表单',
+		'chart'			=>	'图标',
+		'typography'	=>	'排版',
+		'gallery'		=>	'画廊',
+		'table'			=>	'表格',
+		'calendar'		=>	'日历',
+		'grid'			=>	'网格',
+		'file-manager'	=>	'文件管理',
+		'tour'			=>	'游记',
+		'icon'			=>	'图标',
+		'error'			=>	'错误页面',
+		'login'			=>	'登录页面',
+	],
 ];
