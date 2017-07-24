@@ -32,3 +32,8 @@ $container['logger'] = function ($c) {
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
 };
+
+// menu
+$container['menu'] = function ($c) {
+	return $c->get('settings')['menu'];
+};

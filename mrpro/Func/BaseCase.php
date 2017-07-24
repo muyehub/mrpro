@@ -3,7 +3,7 @@
 namespace Mrpro\Func;
 
 use Slim\App;
-use Slim\Container;
+use Slim\Container as Con;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\Environment;
@@ -24,13 +24,21 @@ class BaseCase extends \PHPUnit_Framework_TestCase
 	protected $withMiddleware = true;
 
 	protected $container;
-	protected $view;
 
 	// constructor receives container instance
 	public function __construct(\Slim\Container $container) {
 		parent::__construct();
-		$this->container = $container;
-		$this->view = $this->container->get('view');
+		$this->container 	= 	$container;
+	}
+
+	//获取模板容器
+	public function getView() {
+		return $this->container->get('view');
+	}
+
+	//获取菜单英汉对照配置
+	public function getMenu() {
+		return $this->container->get('menu');
 	}
 
 	/**

@@ -6,10 +6,8 @@ class Youtube extends BaseCase
 {
 	public function Home($request, $response, $args) {
 		$mname			=	ltrim($request->getRequestTarget(),'/');
+		$args['mname']	=	$this->getMenu()[$mname];
 
-		$args['mname']	=	$c->get('settings')[$mname];
-
-		//var_dump($request->uri->);
-		$this->view->render($response,'youtube/home.phtml',$args);
+		$this->getView()->render($response,'youtube/home.phtml',$args);
 	}
 }
